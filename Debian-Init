@@ -7,18 +7,6 @@ sed -i 's#http://deb.debian.org#https://mirrors.huaweicloud.com#g' /etc/apt/sour
 sed -i 's#http://security.debian.org/debian-security#https://mirrors.huaweicloud.com/debian-security#g' /etc/apt/sources.list
 dpkg-reconfigure locales
 
-apt update
-apt upgrade -y
-apt install -y bash-completion\
-firmware-amd-graphics firmware-misc-nonfree firmware-linux-nonfree va-driver-all\
-gnome-core gnome-shell desktop-base\
-network-manager-gnome gnome-audio gnome-clocks gnome-shell-extension-dashtodock gnome-shell-extension-prefs gnome-keyring gnome-remote-desktop\
-policykit-1 policykit-1-gnome power-profiles-daemon fwupd-amd64-signed fwupd\
-ssh sudo --no-install-recommends
-apt remove -y gnome-contacts
-apt autoremove -y
-sed -i 'N;$!P;$!D;$d' /etc/network/interfaces
-
 # Debian SSH Root Login and Gnome Automatic Login:
 sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config
 sed -i 's|#  AutomaticLoginEnable|AutomaticLoginEnable|g' /etc/gdm3/daemon.conf
@@ -92,5 +80,17 @@ echo set wrap >> /etc/vim/vimrc
 echo set linebreak >> /etc/vim/vimrc
 echo set laststatus=2 >> /etc/vim/vimrc
 
+
+apt update
+apt upgrade -y
+apt install -y bash-completion \
+firmware-amd-graphics firmware-misc-nonfree firmware-linux-nonfree va-driver-all \
+gnome-core gnome-shell desktop-base \
+network-manager-gnome gnome-audio gnome-clocks gnome-shell-extension-dashtodock gnome-shell-extension-prefs gnome-keyring gnome-remote-desktop \
+policykit-1 policykit-1-gnome power-profiles-daemon fwupd-amd64-signed fwupd \
+ssh sudo --no-install-recommends
+apt remove -y gnome-contacts
+apt autoremove -y
+sed -i 'N;$!P;$!D;$d' /etc/network/interfaces
 
 exit 0
