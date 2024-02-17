@@ -9,11 +9,12 @@ dpkg-reconfigure locales
 
 apt update
 apt upgrade -y
-apt install -y bash-completion \
-gnome-core gnome-shell desktop-base \
-network-manager-gnome gnome-audio gnome-clocks gnome-shell-extension-dashtodock gnome-shell-extension-prefs \
-gnome-keyring policykit-1 policykit-1-gnome \
-firmware-linux-nonfree ssh sudo --no-install-recommends
+apt install -y bash-completion\
+firmware-amd-graphics firmware-misc-nonfree firmware-linux-nonfree va-driver-all\
+gnome-core gnome-shell desktop-base\
+network-manager-gnome gnome-audio gnome-clocks gnome-shell-extension-dashtodock gnome-shell-extension-prefs gnome-keyring gnome-remote-desktop\
+policykit-1 policykit-1-gnome power-profiles-daemon fwupd-amd64-signed fwupd\
+ssh sudo --no-install-recommends
 apt remove -y gnome-contacts
 apt autoremove -y
 sed -i 'N;$!P;$!D;$d' /etc/network/interfaces
