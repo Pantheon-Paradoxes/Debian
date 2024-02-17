@@ -92,5 +92,4 @@ echo set wrap >> /etc/vim/vimrc
 echo set linebreak >> /etc/vim/vimrc
 echo set laststatus=2 >> /etc/vim/vimrc
 
-
 exit 0
