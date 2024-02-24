@@ -48,14 +48,14 @@ echo -e "\nalias ll='ls -ahls --color=always'\nalias l='ls -ahls --color=always'
 # Vim and Vim.Tiny Configuration Customizing:
 cat <<-EOF >> /etc/vim/vimrc.tiny
 
-set nu ts=4 autoindent hlsearch incsearch showmode showcmd showmatch ignorecase smartcase hidden mouse=a paste nocompatible nobackup noswapfile cursorline ruler wrap linebreak laststatus=2 >> /etc/vim/vimrc.tiny
-hi cursorLine cterm=bold ctermbg=DarkGray ctermfg=NONE >> /etc/vim/vimrc.tiny
+set nu ts=4 autoindent hlsearch incsearch showmode showcmd showmatch ignorecase smartcase hidden mouse=a paste nocompatible nobackup noswapfile cursorline ruler wrap linebreak laststatus=2
+hi cursorLine cterm=bold ctermbg=DarkGray ctermfg=NONE
 EOF
 
 cat <<-EOF >> /etc/vim/vimrc
 
-set nu ts=4 autoindent hlsearch incsearch showmode showcmd showmatch ignorecase smartcase hidden mouse=a paste nocompatible nobackup noswapfile cursorline ruler wrap linebreak laststatus=2 >> /etc/vim/vimrc
-hi cursorLine cterm=bold ctermbg=DarkGray ctermfg=NONE >> /etc/vim/vimrc
+set nu ts=4 autoindent hlsearch incsearch showmode showcmd showmatch ignorecase smartcase hidden mouse=a paste nocompatible nobackup noswapfile cursorline ruler wrap linebreak laststatus=2
+hi cursorLine cterm=bold ctermbg=DarkGray ctermfg=NONE
 EOF
 
 exit 0
