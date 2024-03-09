@@ -6,7 +6,7 @@
 # So the Copy and PasteCan be Available under xterm.js
 dpkg-reconfigure locales
 sed -i 's|GRUB_TIMEOUT=5|GRUB_TIMEOUT=1|g' /etc/default/grub
-sed -i '/"GRUB_CMDLINE_LINUX/s/"quite"/"console=ttyS0,115200 quite"/' /etc/default/grub
+sed -i '/"GRUB_CMDLINE_LINUX/s/"quiet"/"console=ttyS0,115200 quiet"/' /etc/default/grub
 update-grub
 
 sed -i 's#http://deb.debian.org#https://mirrors.huaweicloud.com#g' /etc/apt/sources.list
