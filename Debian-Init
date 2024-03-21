@@ -10,8 +10,8 @@ sed -i 's|GRUB_TIMEOUT=5|GRUB_TIMEOUT=1|g' /etc/default/grub
 sed -i 's|#GRUB_GFXMODE|GRUB_GFXMODE|' /etc/default/grub
 update-grub
 
-sed -i 's#http://deb.debian.org#https://mirrors.huaweicloud.com#g' /etc/apt/sources.list
-sed -i 's#http://security.debian.org/debian-security#https://mirrors.huaweicloud.com/debian-security#g' /etc/apt/sources.list
+# sed -i 's#http://deb.debian.org#https://mirrors.huaweicloud.com#g' /etc/apt/sources.list
+# sed -i 's#http://security.debian.org/debian-security#https://mirrors.huaweicloud.com/debian-security#g' /etc/apt/sources.list
 apt update
 apt upgrade -y
 apt install -y bash-completion \
@@ -32,9 +32,10 @@ sed -i '/AutomaticLoginEnable/i\AutomaticLogin=marvin' /etc/gdm3/daemon.conf
 # Make sudo Nopassword Setting Avaliable to Non-privilege Users:
 Sudo_Line=$(grep "%sudo" /etc/sudoers | tail -1)
 echo $Sudo_Line
-sed -i "s|$Sudo_Line|%sudo ALL=(ALL:ALL) NOPASSWD:ALL|g" /etc/sudoers
+# sed -i "s|$Sudo_Line|%sudo ALL=(ALL:ALL) NOPASSWD:ALL|g" /etc/sudoers
 #awk '($1 ~ "%" && !/sudo/) {$2= $2 FS "NOPASSWD:"; print }' /etc/sudoers
-sed -i '/privilege specification/a\marvin     ALL=(ALL:ALL) NOPASSWD:ALL' /etc/sudoers
+# sed -i '/privilege specification/a\marvin     ALL=(ALL:ALL) NOPASSWD:ALL' /etc/sudoers
+sed -i '/privilege specification/a\marvin     ALL=(ALL:ALL) ALL' /etc/sudoers
 
 # Configurate Bash Commands Line:
 find /home /root -name '.bashrc' -type f | xargs sed -i "/HISTSIZE=/c\HISTSIZE=-1"
