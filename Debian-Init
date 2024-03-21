@@ -35,8 +35,7 @@ echo $Sudo_Line
 # sed -i "s|$Sudo_Line|%sudo ALL=(ALL:ALL) NOPASSWD:ALL|g" /etc/sudoers
 #awk '($1 ~ "%" && !/sudo/) {$2= $2 FS "NOPASSWD:"; print }' /etc/sudoers
 # sed -i '/privilege specification/a\marvin     ALL=(ALL:ALL) NOPASSWD:ALL' /etc/sudoers
-# sed -i '/privilege specification/a\marvin     ALL=(ALL:ALL) ALL' /etc/sudoers
-usermod -a G sudo marvin
+sed -i '/privilege specification/a\marvin     ALL=(ALL:ALL) ALL' /etc/sudoers
 
 # Configurate Bash Commands Line:
 find /home /root -name '.bashrc' -type f | xargs sed -i "/HISTSIZE=/c\HISTSIZE=-1"
