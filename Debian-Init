@@ -4,7 +4,6 @@
 
 # Update Kernel:
 apt install -y linux-image-amd64/stable-backports linux-headers-amd64/stable-backports
-apt autopurge -y
 
 # Configurate GRUB to Enable Serial Port (console=ttyS0,115200 |console=tty0)
 # So the Copy and PasteCan be Available under xterm.js
@@ -27,6 +26,7 @@ ssh sudo --no-install-recommends
 # Spare hardware driver:firmware-amd-graphics firmware-misc-nonfree firmware-linux-nonfree va-driver-all
 apt remove -y gnome-contacts
 apt autoremove -y
+apt autopurge -y
 sed -i 'N;$!P;$!D;$d' /etc/network/interfaces
 
 # Debian SSH Root Login and Gnome Automatic Login:
