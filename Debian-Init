@@ -1,9 +1,14 @@
 #!/bin/bash
 # Debian Initiation Program
-# By Marvin.W
+# Copyright (c) 2024 By Marvin.W
+
+# Update Kernel:
+apt install -y linux-image-amd64/stable-backports linux-headers-amd64/stable-backports
+apt autopurge -y
 
 # Configurate GRUB to Enable Serial Port (console=ttyS0,115200 |console=tty0)
 # So the Copy and PasteCan be Available under xterm.js
+# Configurate Debian System:
 dpkg-reconfigure locales
 sed -i 's|GRUB_TIMEOUT=5|GRUB_TIMEOUT=1|g' /etc/default/grub
 #sed -i '/GRUB_CMDLINE_LINUX_DEFAULT/s/"quiet"/"quiet console=ttyS0,115200"/' /etc/default/grub
@@ -52,13 +57,13 @@ echo -e "\nalias ll='ls -ahls --color=always'\nalias l='ls -ahls --color=always'
 
 # Vim and Vim.Tiny Configuration Customizing:
 cat <<-EOF >> /etc/vim/vimrc.tiny
-
+# Copyright (c) 2024 By Marvin.W
 set nu ts=4 autoindent hlsearch incsearch showmode showcmd showmatch ignorecase smartcase hidden mouse=a paste nocompatible nobackup noswapfile cursorline ruler wrap linebreak laststatus=2
 hi cursorLine cterm=bold ctermbg=DarkGray ctermfg=NONE
 EOF
 
 cat <<-EOF >> /etc/vim/vimrc
-
+# Copyright (c) 2024 By Marvin.W
 set nu ts=4 autoindent hlsearch incsearch showmode showcmd showmatch ignorecase smartcase hidden mouse=a paste nocompatible nobackup noswapfile cursorline ruler wrap linebreak laststatus=2
 hi cursorLine cterm=bold ctermbg=DarkGray ctermfg=NONE
 EOF
