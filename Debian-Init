@@ -3,6 +3,7 @@
 # Copyright (c) 2024 By Marvin.W
 
 # Update Kernel:
+apt update
 apt install -y linux-image-amd64/stable-backports linux-headers-amd64/stable-backports
 
 # Configurate GRUB to Enable Serial Port (console=ttyS0,115200 |console=tty0)
@@ -16,7 +17,7 @@ update-grub
 
 sed -i 's#http://deb.debian.org#https://mirrors.huaweicloud.com#g' /etc/apt/sources.list
 sed -i 's#http://security.debian.org/debian-security#https://mirrors.huaweicloud.com/debian-security#g' /etc/apt/sources.list
-apt update
+
 apt upgrade -y
 apt install -y bash-completion \
 gnome-core gnome-shell desktop-base \
@@ -24,6 +25,7 @@ network-manager-gnome gnome-audio gnome-clocks gnome-shell-extension-prefs gnome
 policykit-1 policykit-1-gnome power-profiles-daemon fwupd-amd64-signed fwupd \
 ssh sudo --no-install-recommends
 # Spare hardware driver:firmware-amd-graphics firmware-misc-nonfree firmware-linux-nonfree va-driver-all
+
 apt remove -y gnome-contacts
 apt autoremove -y
 apt autopurge -y
