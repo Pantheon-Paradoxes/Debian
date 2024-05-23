@@ -20,7 +20,7 @@ update-grub
 echo "Waiting for 3 Seconds..."
 sleep 3
 
-apt upgrade -y
+apt full-upgrade -y
 apt install -y bash-completion \
 gnome-core gnome-shell desktop-base \
 network-manager-gnome gnome-audio gnome-clocks gnome-shell-extension-prefs gnome-shell-extension-dashtodock gnome-keyring gnome-remote-desktop gnome-shell-extension-appindicator yaru-theme-gnome-shell gnome-shell-extension-desktop-icons-ng \
@@ -32,6 +32,8 @@ apt remove -y gnome-contacts
 apt autoremove -y
 # Purge Obsoleted Kernels:
 apt autopurge -y
+
+# Repair Network Missing When Updating to Gnome Desktop
 sed -i 'N;$!P;$!D;$d' /etc/network/interfaces
 
 # Debian SSH Root Login and Gnome Automatic Login:
