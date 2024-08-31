@@ -77,4 +77,10 @@ set nu ts=4 autoindent hlsearch incsearch showmode showcmd showmatch ignorecase 
 hi cursorLine cterm=bold ctermbg=DarkGray ctermfg=NONE
 EOF
 
+# Enable IP Forwarding and Allow Permanent Firewall Masquerading:
+echo 'net.ipv4.ip_forward = 1' | sudo tee -a /etc/sysctl.conf
+echo 'net.ipv6.conf.all.forwarding = 1' | sudo tee -a /etc/sysctl.conf
+sysctl -p /etc/sysctl.conf
+firewall-cmd --permanent --add-masquerade
+
 exit 0
